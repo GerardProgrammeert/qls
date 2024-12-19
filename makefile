@@ -1,4 +1,4 @@
-project = template # change this for your project name
+project=template# change this for your project name
 
 in:
 	docker exec -it "$(project)-php-fpm-1" /bin/bash
