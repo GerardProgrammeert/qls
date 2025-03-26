@@ -33,6 +33,7 @@ services:
       - "3306:3306"
     volumes:
       - database:/var/lib/mysql
+      - .dev/mysql:/docker-entrypoint-initdb.d
     networks:
       - app-network
 
@@ -47,7 +48,7 @@ services:
       - app-network
     environment:
       MP_MAX_MESSAGES: 5000
-      MP_DATA_FILE: /data/mailpit.db
+      MP_DATA_FILE: /storage/mailpit/mailpit.db
       MP_SMTP_AUTH_ACCEPT_ANY: 1
       MP_SMTP_AUTH_ALLOW_INSECURE: 1
 
