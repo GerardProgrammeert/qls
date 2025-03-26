@@ -5,6 +5,7 @@
 /public/storage
 /storage/*.key
 /storage/pail
+/storage/mailpit
 /vendor
 .env
 .env.backup
