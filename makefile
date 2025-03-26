@@ -9,6 +9,10 @@ up:
 down:
 	docker-compose down
 
+refresh:
+	docker-compose down -v
+	docker-compose up -d
+
 rebuild:
 	docker-compose down
 	docker-compose build
