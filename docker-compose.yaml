@@ -17,6 +17,8 @@ services:
       - "9000:9000"
     volumes:
       - ./:/var/www/html
+      - ./.dev/system/.bashrc:/home/php/.bashrc
+      - ./.dev/system/.bash_aliases:/home/php/.bash_aliases
     links:
       - mysql
     networks:
