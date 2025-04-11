@@ -3,6 +3,9 @@ project=$(shell basename $(shell pwd))
 in:
 	@docker exec --user=php -it "$(project)-php-fpm-1" /bin/bash
 
+in-root:
+	docker exec --user=root -it "$(project)-php-fpm-1" /bin/sh
+
 up:
 	@docker-compose up -d
 
@@ -13,6 +16,10 @@ refresh:
 	@docker-compose down -v
 	@docker-compose up -d
 
+build:
+	@docker-compose build
+	@docker-compose up -d
+
 rebuild:
 	@docker-compose down
 	@docker-compose build
@@ -21,10 +28,13 @@ rebuild:
 tail:
 	@docker compose logs --follow
 
-install-laravel:
-	@composer create-project laravel/laravel
-	@mv laravel/* laravel/.* .
-	@rm -d laravel
+install:
+	@cp .env.example .env
+	@cp .env.testing.example .env.testing
+	@composer install
+	@php artisan key:generate
+	@chown -R www-data:www-data /var/www/html/public
+	@chmod o+w ./storage/ -R
 
 laravel-chmod:
 	@chmod o+w ./storage/ -R
