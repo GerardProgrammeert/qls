@@ -4,8 +4,35 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b87e5469f3c8a0a2ff9655dce7f4593b",
+    "content-hash": "2193b518fb670ab0a8c9d0f3676d578d",
     "packages": [
+        {
+            "name": "BeezMaster/qls-client",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "packages/BeezMaster/qls-client",
+                "reference": "fce58a745b74f134fdcfe639bd4090ce3aec306b"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "BeezMaster\\QLSClient\\QLSClientServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "BeezMaster\\QLSClient\\": "src/"
+                }
+            },
+            "description": "A Laravel client for QLS API",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
         {
             "name": "brick/math",
             "version": "0.12.1",
@@ -8803,7 +8830,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "beezmaster/qls-client": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

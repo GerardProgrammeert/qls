@@ -1,7 +1,7 @@
 project=$(shell basename $(shell pwd))
 
 in:
-	@docker exec --user=php -it "$(project)-php-fpm-1" /bin/bash
+	@docker exec --user=php -it "$(project)-php-fpm-1" /bin/sh
 
 in-root:
 	docker exec --user=root -it "$(project)-php-fpm-1" /bin/sh
@@ -33,6 +33,7 @@ install:
 	@cp .env.testing.example .env.testing
 	@composer install
 	@php artisan key:generate
+	@php artisan migrate
 	@chown -R www-data:www-data /var/www/html/public
 	@chmod o+w ./storage/ -R
 
