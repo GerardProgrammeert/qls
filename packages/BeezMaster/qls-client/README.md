@@ -1,5 +1,5 @@
 # QLS Client
-
+A Laravel package to interact with the QLS API.
 ## Installation
 
 ```
