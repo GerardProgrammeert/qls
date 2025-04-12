@@ -1,0 +1,458 @@
+{
+    "meta": {
+        "code": 200
+    },
+    "data": [
+        {
+            "id": 1,
+            "category": "shipment",
+            "name": "DHL Brievenbus pakje",
+            "short": "dhl-mailbox-parcel",
+            "carrier_id": "ddadfc34-007e-4a32-afec-807f837809c4",
+            "family_id": "1a6ae81e-ce57-4daf-8709-8e5f3ca42715",
+            "carrier_product_code": "91",
+            "parent_product_id": null,
+            "use_as_fallback": false,
+            "image_small": "dhllogo_small.svg",
+            "type": "delivery",
+            "servicepoint": false,
+            "max_height": 32,
+            "max_length": 380,
+            "max_width": 265,
+            "specifications": "Maximale afmetingen: 38 x 26 x 3 cm",
+            "has_custom_document": false,
+            "has_label": true,
+            "has_volumetric_weight": false,
+            "has_zpl_label": true,
+            "email_required": false,
+            "sort": 15,
+            "return_product_id": 20,
+            "return_product_combination_id": 38,
+            "restricted_sender_country": null,
+            "auto_invoice": true,
+            "volumetric_weight_factor": 0,
+            "default_options": [
+                "tracktrace"
+            ],
+            "sorting_text": "Pakjes NL First Wave",
+            "sorting_color": "lightgray",
+            "customs_declaration_type": "document",
+            "customs_declaration_invoice_number_required": false,
+            "customs_declaration_total_price_max": 99999.99,
+            "customs_declaration_need_hs_code": false,
+            "customs_incoterms_code": null,
+            "parcel_type": null,
+            "product_family": {
+                "id": "1a6ae81e-ce57-4daf-8709-8e5f3ca42715",
+                "name": "DHL eCommerce",
+                "target_group_tag": "family_dhlparcel_ecommerce"
+            },
+            "pricing": [
+                {
+                    "id": 1,
+                    "country": "NL",
+                    "weight_min": 0,
+                    "weight_max": 2000,
+
+                    "price": 10.54,
+                    "enabled": true
+                }
+            ],
+            "surcharge_pricing": [],
+            "options": [],
+            "combinations": [
+                {
+                    "id": 1,
+                    "name": "DHL Brievenbus pakje",
+                    "product_options": []
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "category": "shipment",
+            "name": "DHL Pakje",
+            "short": "dhl-parcel-deprecated",
+            "carrier_id": "ddadfc34-007e-4a32-afec-807f837809c4",
+            "family_id": "1a6ae81e-ce57-4daf-8709-8e5f3ca42715",
+            "carrier_product_code": null,
+            "parent_product_id": null,
+            "use_as_fallback": false,
+            "image_small": "dhllogo_small.svg",
+            "type": "delivery",
+            "servicepoint": false,
+            "max_height": 350,
+            "max_length": 800,
+            "max_width": 500,
+            "specifications": "Maximale lengte: 80 cm\u003Cbr \/\u003E\nL x B x H in cm = maximaal 60.000\n",
+            "has_custom_document": false,
+            "has_label": true,
+            "has_volumetric_weight": false,
+            "has_zpl_label": true,
+            "email_required": false,
+            "sort": 25,
+            "return_product_id": 20,
+            "return_product_combination_id": 38,
+            "restricted_sender_country": null,
+            "auto_invoice": true,
+            "volumetric_weight_factor": 0,
+            "default_options": [
+                "tracktrace"
+            ],
+            "sorting_text": "Pakjes NL First Wave",
+            "sorting_color": "lightgray",
+            "customs_declaration_type": "document",
+            "customs_declaration_invoice_number_required": false,
+            "customs_declaration_total_price_max": 99999.99,
+            "customs_declaration_need_hs_code": false,
+            "customs_incoterms_code": null,
+            "parcel_type": null,
+            "product_family": {
+                "id": "1a6ae81e-ce57-4daf-8709-8e5f3ca42715",
+                "name": "DHL eCommerce",
+                "target_group_tag": "family_dhlparcel_ecommerce"
+            },
+            "pricing": [
+                {
+                    "id": 3,
+                    "country": "NL",
+                    "weight_min": 0,
+                    "weight_max": 1000,
+                    "price": 10.54,
+                    "enabled": true
+                },
+                {
+                    "id": 2,
+                    "country": "NL",
+                    "weight_min": 1000,
+                    "weight_max": 10000,
+                    "price": 10.54,
+                    "enabled": true
+                },
+                {
+                    "id": 25981,
+                    "country": "NL",
+                    "weight_min": 10000,
+                    "weight_max": 31500,
+                    "price": 10.54,
+                    "enabled": true
+                }
+            ],
+            "surcharge_pricing": [
+                {
+                    "id": 1,
+                    "name": "Pakket type S",
+                    "price": 0
+                },
+                {
+                    "id": 2,
+                    "name": "Pakket type M",
+                    "price": 0
+                },
+                {
+                    "id": 3,
+                    "name": "Pakket type L",
+                    "price": 0.53
+                },
+                {
+                    "id": 4,
+                    "name": "Pakket type XL",
+                    "price": 2.65
+                },
+                {
+                    "id": 5,
+                    "name": "Pakket type XXL",
+                    "price": 7.95
+                }
+            ],
+            "options": [
+                {
+                    "id": 1,
+                    "name": "Handtekening",
+                    "tag": "handt",
+                    "price": "0.5"
+                },
+                {
+                    "id": 2,
+                    "name": "Niet bij buren",
+                    "tag": "nbb",
+                    "price": "0.3"
+                },
+                {
+                    "id": 3,
+                    "name": "Rembours",
+                    "tag": "cod",
+                    "price": "5"
+                },
+                {
+                    "id": 13,
+                    "name": "Avond ",
+                    "tag": "eve",
+                    "price": "0.75"
+                },
+                {
+                    "id": 16,
+                    "name": "Leeftijdscheck voor ontvangst",
+                    "tag": "age_check",
+                    "price": "1.5"
+                }
+            ],
+            "combinations": [
+                {
+                    "id": 3,
+                    "name": "DHL Pakje",
+                    "product_options": []
+                },
+                {
+                    "id": 8,
+                    "name": "DHL Pakje (handtekening)",
+                    "product_options": [
+                        {
+                            "id": 1,
+                            "name": "Handtekening",
+                            "tag": "handt"
+                        }
+                    ]
+                },
+                {
+                    "id": 9,
+                    "name": "DHL Pakje (niet bij buren)",
+                    "product_options": [
+                        {
+                            "id": 2,
+                            "name": "Niet bij buren",
+                            "tag": "nbb"
+                        }
+                    ]
+                },
+                {
+                    "id": 11,
+                    "name": "DHL Pakje (handtekening + niet bij buren)",
+                    "product_options": [
+                        {
+                            "id": 1,
+                            "name": "Handtekening",
+                            "tag": "handt"
+                        },
+                        {
+                            "id": 2,
+                            "name": "Niet bij buren",
+                            "tag": "nbb"
+                        }
+                    ]
+                },
+                {
+                    "id": 43,
+                    "name": "DHL Pakje (avondlevering)",
+                    "product_options": [
+                        {
+                            "id": 13,
+                            "name": "Avond ",
+                            "tag": "eve"
+                        }
+                    ]
+                },
+                {
+                    "id": 66,
+                    "name": "DHL Pakje (leeftijdscheck)",
+                    "product_options": [
+                        {
+                            "id": 16,
+                            "name": "Leeftijdscheck voor ontvangst",
+                            "tag": "age_check"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "category": "shipment",
+            "name": "DHL pakje (servicepunt)",
+            "short": "dhl-parcel-servicepoint-deprecated",
+            "carrier_id": "ddadfc34-007e-4a32-afec-807f837809c4",
+            "family_id": "1a6ae81e-ce57-4daf-8709-8e5f3ca42715",
+            "carrier_product_code": "21",
+            "parent_product_id": 2,
+            "use_as_fallback": false,
+            "image_small": "dhllogo_small.svg",
+            "type": "delivery",
+            "servicepoint": true,
+            "max_height": 350,
+            "max_length": 800,
+            "max_width": 500,
+            "specifications": "Maximale lengte: 80 cm\u003Cbr \/\u003E\nL x B x H in cm = maximaal 60.000\n",
+            "has_custom_document": false,
+            "has_label": true,
+            "has_volumetric_weight": false,
+            "has_zpl_label": true,
+            "email_required": false,
+            "sort": 25,
+            "return_product_id": 20,
+            "return_product_combination_id": 38,
+            "restricted_sender_country": null,
+            "auto_invoice": true,
+            "volumetric_weight_factor": 0,
+            "default_options": [
+                "tracktrace"
+            ],
+            "sorting_text": "Pakjes NL First Wave",
+            "sorting_color": "lightgray",
+            "customs_declaration_type": "document",
+            "customs_declaration_invoice_number_required": false,
+            "customs_declaration_total_price_max": 99999.99,
+            "customs_declaration_need_hs_code": false,
+            "customs_incoterms_code": null,
+            "parcel_type": null,
+            "product_family": {
+                "id": "1a6ae81e-ce57-4daf-8709-8e5f3ca42715",
+                "name": "DHL eCommerce",
+                "target_group_tag": "family_dhlparcel_ecommerce"
+            },
+            "pricing": [
+                {
+                    "id": 7,
+                    "country": "NL",
+                    "weight_min": 0,
+                    "weight_max": 10000,
+                    "price": 10.54,
+                    "enabled": true
+                },
+                {
+                    "id": 25982,
+                    "country": "NL",
+                    "weight_min": 10000,
+                    "weight_max": 23000,
+                    "price": 10.54,
+                    "enabled": true
+                }
+            ],
+            "surcharge_pricing": [
+                {
+                    "id": 6,
+                    "name": "Pakket type S",
+                    "price": 0
+                },
+                {
+                    "id": 7,
+                    "name": "Pakket type M",
+                    "price": 0
+                },
+                {
+                    "id": 8,
+                    "name": "Pakket type L",
+                    "price": 0.53
+                },
+                {
+                    "id": 9,
+                    "name": "Pakket type XL",
+                    "price": 2.65
+                },
+                {
+                    "id": 10,
+                    "name": "Pakket type XXL",
+                    "price": 7.95
+                }
+            ],
+            "options": [],
+            "combinations": [
+                {
+                    "id": 14,
+                    "name": "DHL pakje (servicepunt)",
+                    "product_options": []
+                }
+            ]
+        },
+        {
+            "id": 20,
+            "category": "shipment",
+            "name": "DHL Pakje retourlabel",
+            "short": "dhl-parcel-returnlabel",
+            "carrier_id": "45cbacf7-fa32-4dad-911d-3fd62d1cffce",
+            "family_id": "1a6ae81e-ce57-4daf-8709-8e5f3ca42715",
+            "carrier_product_code": null,
+            "parent_product_id": null,
+            "use_as_fallback": false,
+            "image_small": "dhllogo_small.svg",
+            "type": "return",
+            "servicepoint": false,
+            "max_height": 900,
+            "max_length": 900,
+            "max_width": 900,
+            "specifications": "Maximaal 60 liter",
+            "has_custom_document": false,
+            "has_label": true,
+            "has_volumetric_weight": false,
+            "has_zpl_label": false,
+            "email_required": false,
+            "sort": 25,
+            "return_product_id": null,
+            "return_product_combination_id": null,
+            "restricted_sender_country": null,
+            "auto_invoice": true,
+            "volumetric_weight_factor": 0,
+            "default_options": [
+                "tracktrace"
+            ],
+            "sorting_text": "Retouren",
+            "sorting_color": "orangered",
+            "customs_declaration_type": "document",
+            "customs_declaration_invoice_number_required": false,
+            "customs_declaration_total_price_max": 99999.99,
+            "customs_declaration_need_hs_code": false,
+            "customs_incoterms_code": null,
+            "parcel_type": null,
+            "product_family": {
+                "id": "1a6ae81e-ce57-4daf-8709-8e5f3ca42715",
+                "name": "DHL eCommerce",
+                "target_group_tag": "family_dhlparcel_ecommerce"
+            },
+            "pricing": [
+                {
+                    "id": 429,
+                    "country": "NL",
+                    "weight_min": 0,
+                    "weight_max": 15000,
+                    "price": 4.75,
+                    "enabled": true
+                },
+                {
+                    "id": 25983,
+                    "country": "NL",
+                    "weight_min": 15000,
+                    "weight_max": 31500,
+                    "price": 10.54,
+                    "enabled": true
+                }
+            ],
+            "surcharge_pricing": [],
+            "options": [
+                {
+                    "id": 91,
+                    "name": "Printerloos retourneren",
+                    "tag": "printerless_return",
+                    "price": "0.25"
+                }
+            ],
+            "combinations": [
+                {
+                    "id": 38,
+                    "name": "DHL Pakje retourlabel",
+                    "product_options": []
+                },
+                {
+                    "id": 216,
+                    "name": "DHL Pakje retourlabel (printerloos)",
+                    "product_options": [
+                        {
+                            "id": 91,
+                            "name": "Printerloos retourneren",
+                            "tag": "printerless_return"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "pagination": []
+}
