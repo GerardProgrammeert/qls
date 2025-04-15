@@ -68,7 +68,7 @@ class ProductRepository implements ProductRepositoryInterface
     {
         $products = $this->all();
 
-        return $products->filter(fn($item) => $item->getId() === $id);
+        return $products?->filter(fn($item) => $item->getId() === $id);
     }
 
     public function refresh(): void

@@ -34,7 +34,7 @@
         @endif
 
         <div class="card-footer text-left">
-            <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-2xl shadow-lg text-xl transition-all">Create Order</button>
+            <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-2xl shadow-lg text-xl transition-all">Register QLS SHIPMENT</button>
         </div>
     </div>
 </form>

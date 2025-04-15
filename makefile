@@ -32,9 +32,14 @@ install:
 	@cp .env.example .env
 	@cp .env.testing.example .env.testing
 	@composer install
+	@npm install
 	@php artisan key:generate
 	@php artisan migrate
 	@php artisan db:seed
+	@chown -R www-data:www-data /var/www/html/public
+	@chmod o+w ./storage/ -R
+
+permissions:
 	@chown -R www-data:www-data /var/www/html/public
 	@chmod o+w ./storage/ -R
 
