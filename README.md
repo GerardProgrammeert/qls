@@ -5,7 +5,7 @@
 ### step 1: download and install
 run the following cmds in your terminal
 ```bash
-git clone 
+git clone git@github.com:GerardProgrammeert/qls.git
 cd qls
 make build in-root install
 ```
