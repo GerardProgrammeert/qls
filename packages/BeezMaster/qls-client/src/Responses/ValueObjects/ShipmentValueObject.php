@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace BeezMaster\QLSClient\Responses\ValueObjects;
 
-use BeezMaster\QLSClient\CustomsShipmentTypes;
-use BeezMaster\QLSClient\Responses\Collection\ShipmentProductsCollection;
-use BeezMaster\QLSClient\ShipmentStatuses;
-use BeezMaster\QLSClient\ShipmentTypes;
+use BeezMaster\QLSClient\Enums\CustomsShipmentTypes;
+use BeezMaster\QLSClient\Enums\ShipmentStatuses;
+use BeezMaster\QLSClient\Enums\ShipmentTypes;
+use BeezMaster\QLSClient\Responses\Collections\ShipmentProductsCollection;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Collection;
 use InvalidArgumentException;
+use BeezMaster\QLSClient\ValueObjects\AbstractValueObject;
 
 final readonly class ShipmentValueObject extends AbstractValueObject
 {
@@ -35,7 +35,7 @@ final readonly class ShipmentValueObject extends AbstractValueObject
         private ?ContactValueObject $returnContact,
         private ContactValueObject $receiverContact,
         private ?ContactValueObject $deliveryContact,
-        private Collection $shipmentProducts
+        private ShipmentProductsCollection $shipmentProducts
     )
     {
     }
@@ -60,9 +60,9 @@ final readonly class ShipmentValueObject extends AbstractValueObject
             'labelPdfUrl' => self::parseAsNullableString($data, 'label_pdf_url'),
             'labelZplUrl' => self::parseAsNullableString($data, 'label_zpl_url'),
             'customsInvoiceNumber' => self::parseAsNullableString($data, 'customs_invoice_number'),
-            'customsShipmentType' => CustomsShipmentTypes::tryFrom($data['customs_shipment_type'] ?? null),
-            'status' => ShipmentStatuses::tryFrom($data['status'] ?? null),
-            'type' => ShipmentTypes::tryFrom($data['type'] ?? null),
+            'customsShipmentType' => isset($data['customs_shipment_type']) ? CustomsShipmentTypes::tryFrom($data['customs_shipment_type']) : null,
+            'status' => isset($data['status']) ? ShipmentStatuses::tryFrom($data['status']) : null,
+            'type' => isset($data['type']) ? ShipmentTypes::tryFrom($data['type']) : null,
             'returnContact' =>  self::parseAsNullableContact($data, 'return_contact'),
             'receiverContact' => self::parseAsContact($data, 'receiver_contact'),
             'deliveryContact' => self::parseAsNullableContact($data, 'delivery_contact'),
@@ -85,7 +85,6 @@ final readonly class ShipmentValueObject extends AbstractValueObject
     {
         if(!array_key_exists($key, $data)){
             throw new InvalidArgumentException("$key cannot be empty");
-
         }
 
         return ContactValueObject::hydrate($data[$key]);
@@ -98,7 +97,7 @@ final readonly class ShipmentValueObject extends AbstractValueObject
             return $collection;
         }
 
-        foreach($data[$key] as $item) {
+        foreach($data[$key]['data'] as $item) {
             $collection->push(ShipmentProductValueObject::hydrate($item));
         }
 

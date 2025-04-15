@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BeezMaster\QLSClient\Responses\Collection;
+namespace BeezMaster\QLSClient\Responses\Collections;
 
 use BeezMaster\QLSClient\Responses\ValueObjects\ProductPricingValueObject;
 

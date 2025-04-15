@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace BeezMaster\QLSClient\Responses;
 
-use BeezMaster\QLSClient\Responses\Collection\ProductsCollection;
+use BeezMaster\QLSClient\Responses\Collections\ProductsCollection;
 use Illuminate\Support\Collection;
 
 final class GetProductsResponse extends AbstractResponse implements HasGetCollectionInterface

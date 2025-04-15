@@ -4,18 +4,18 @@ namespace BeezMaster\QLSClient;
 
 use BeezMaster\QLSClient\Clients\ClientFactory;
 use BeezMaster\QLSClient\Clients\ClientInterface;
-use BeezMaster\QLSClient\Repositories\ProductsRepository;
+use BeezMaster\QLSClient\Repositories\ProductRepository;
 use Illuminate\Support\ServiceProvider;
 
 class QLSClientServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->app->bind(ProductsRepository::class, function () {
+        $this->app->bind(ProductRepository::class, function () {
             $companyId = config('qls-client.company_id');
             $cacheKey = config('qls-client.cache_key');
 
-            return new ProductsRepository($companyId, $cacheKey);
+            return new ProductRepository($companyId, $cacheKey);
         });
     }
 
@@ -39,10 +39,6 @@ class QLSClientServiceProvider extends ServiceProvider
                     'user' => config('qls-client.user'),
                     'pwd' =>  config('qls-client.pwd'),
                 ];
-                //@todo create fake client
-//                if ($this->app->environment('testing')) {
-//                    return (new FakeClientFactory(...$args))->make();
-//                }
                 return (new ClientFactory(...$args))->make();
             });
     }

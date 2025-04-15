@@ -1,3 +1,7 @@
+/* Don't import Tailwind like this */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom styles */
+@source "../views"; /* Check if this is correct, it's not a standard CSS directive. */

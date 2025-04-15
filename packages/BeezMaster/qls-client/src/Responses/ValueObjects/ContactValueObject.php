@@ -8,7 +8,7 @@ final readonly class ContactValueObject extends AbstractValueObject
 {
     public function __construct (
         private string $name,
-        private string $companyName,
+        private ?string $companyName,
         private string $street,
         private string $houseNumber,
         private ?string $address2,
@@ -31,7 +31,7 @@ final readonly class ContactValueObject extends AbstractValueObject
     {
         $args = [
             'name' => self::parseAsString($data, 'name'),
-            'companyName' => self::parseAsString($data, 'companyname'),
+            'companyName' => self::parseAsNullableString($data, 'companyname'),
             'street' =>  self::parseAsString($data, 'street'),
             'houseNumber' => self::parseAsString($data, 'housenumber'),
             'address2' => self::parseAsNullableString($data, 'address2'),
@@ -53,7 +53,7 @@ final readonly class ContactValueObject extends AbstractValueObject
      */
     public function toArray(): array
     {
-        return [
+       $data = [
             'name'=> $this->name,
             'companyname'=> $this->companyName,
             'street'=> $this->street,
@@ -68,5 +68,7 @@ final readonly class ContactValueObject extends AbstractValueObject
             'eori'=> $this->eori,
             'oss'=> $this->oss,
         ];
+
+        return array_filter($data);
     }
 }

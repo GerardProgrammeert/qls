@@ -7,7 +7,6 @@ namespace BeezMaster\QLSClient\Responses\ValueObjects;
 final readonly class ShipmentProductValueObject extends AbstractValueObject
 {
     public function __construct(
-        private string $id,
         private int $amount,
         private string $name,
         private ?string $countryCodeOfOrigin,
@@ -24,7 +23,6 @@ final readonly class ShipmentProductValueObject extends AbstractValueObject
     public static function hydrate(array $data): self
     {
         $args = [
-            'id' => self::parseAsString($data, 'id'),
             'amount' => self::parseAsInteger($data, 'amount'),
             'name' =>self::parseAsString($data, 'name'),
             'countryCodeOfOrigin' => self::parseAsNullableString($data, 'country_code_of_origin'),
@@ -45,7 +43,6 @@ final readonly class ShipmentProductValueObject extends AbstractValueObject
     public function toArray(): array
     {
         return [
-            'id' => $this->id,
             'amount' => $this->amount,
             'name' => $this->name,
             'country_code_of_origin' => $this->countryCodeOfOrigin,

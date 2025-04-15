@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BeezMaster\QLSClient\Responses\Collection;
+namespace BeezMaster\QLSClient\Responses\Collections;
 
 use Illuminate\Support\Collection;
 

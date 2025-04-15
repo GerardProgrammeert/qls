@@ -13,24 +13,24 @@ class GuzzleClient implements ClientInterface
     {
     }
 
-    public function get(string $url, array $params): ResponseInterface
+    public function get(string $url, array $options = []): ResponseInterface
     {
-        return $this->client->get($url, $params);
+        return $this->client->get($url, $options);
     }
 
-    public function post(string $url, array $payload = []): ResponseInterface
+    public function post(string $url, array $options = []): ResponseInterface
     {
-        return $this->client->post($url, $payload);
+        return $this->client->post($url, $options);
     }
 
-    public function put(string $url, array $payload = []): ResponseInterface
+    public function put(string $url, array $options = []): ResponseInterface
     {
-        return $this->client->put($url, $payload);
+        return $this->client->put($url, $options);
     }
 
-    public function patch(string $url, array $payload = []): ResponseInterface
+    public function patch(string $url, array $options = []): ResponseInterface
     {
-        return $this->client->patch($url, $payload);
+        return $this->client->patch($url, $options);
     }
 
     public function delete(string $url): ResponseInterface

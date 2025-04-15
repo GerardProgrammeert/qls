@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace BeezMaster\QLSClient\Responses\ValueObjects;
 
-use BeezMaster\QLSClient\Responses\Collection\ProductOptionsCollection;
+use BeezMaster\QLSClient\Responses\Collections\ProductOptionsCollection;
 
 final readonly class ProductCombinationValueObject extends AbstractValueObject
 {

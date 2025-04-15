@@ -10,14 +10,10 @@ namespace BeezMaster\QLSClient;
  */
 Enum Endpoints: string
 {
-    /**
-     * Replace `%s` with the company ID.
-     */
+
     case COMPANY_PRODUCTS = '/companies/%s/products';
 
-    /**
-     * Replace `%s` with the company ID.
-     */
-
     case CREATE_SHIPMENT = '/v2/companies/%s/shipments';
+
+    case SHIPMENT = '/v2/companies/%s/shipments/%s/labels/pdf';
 }

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace BeezMaster\QLSClient\Responses\ValueObjects;
 
-//todo validate countries
 final readonly class ProductPricingValueObject extends AbstractValueObject
 {
     public function __construct(

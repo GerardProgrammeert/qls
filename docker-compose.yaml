@@ -19,6 +19,7 @@ services:
       dockerfile: Dockerfile
     ports:
       - "9000:9000"
+      - '${HMR_PORT:-5173}:5173'
     volumes:
       - ./:/var/www/html
       - ./.dev/system/.bashrc:/home/php/.bashrc

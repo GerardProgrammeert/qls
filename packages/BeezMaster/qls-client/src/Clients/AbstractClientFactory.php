@@ -41,7 +41,6 @@ abstract readonly class AbstractClientFactory implements ClientFactoryInterface
         return [
             'Authorization' => "Basic $credentials",
             'Accept'        => 'application/json',
-            'Content-Type'  => 'application/json',
         ];
     }
 

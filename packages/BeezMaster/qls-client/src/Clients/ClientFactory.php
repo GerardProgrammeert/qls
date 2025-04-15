@@ -15,10 +15,8 @@ final readonly class ClientFactory extends AbstractClientFactory
     public function getStack(): HandlerStack
     {
         $stack = HandlerStack::create();
-
         $handler = new CurlHandler();
         $stack->setHandler($handler);
-
         $rateLimiter = new QLSRateLimiter($this->cacheKey);
         $rateLimiterMiddleware = app()->makeWith(QLSRateLimiterMiddleware::class, ['rateLimiter' => $rateLimiter]);
         $stack->push($rateLimiterMiddleware);
@@ -27,6 +25,7 @@ final readonly class ClientFactory extends AbstractClientFactory
             $responseLoggerMiddleware = new ResponseLoggerMiddleware();
             $stack->push($responseLoggerMiddleware);
         }
+
         return $stack;
     }
 }

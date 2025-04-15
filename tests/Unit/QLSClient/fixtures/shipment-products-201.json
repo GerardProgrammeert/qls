@@ -1,0 +1,204 @@
+{
+    "data": {
+        "id": "ff5717e4-585e-4c93-86eb-7e52e0e18c1f",
+        "company_id": "9e606e6b-44a4-4a4e-a309-cc70ddd3a103",
+        "brand_id": "e41c8d26-bdfd-4999-9086-e5939d67ae28",
+        "product_id": 2,
+        "product_combination_id": 11,
+        "barcode": "3SQLW0026289485",
+        "tracking_url": "https:\/\/v2.goparcel.nl\/track\/3SQLW0026289485\/2991RN",
+        "status": "created",
+        "type": "delivery",
+        "weight": 0,
+        "reference": null,
+        "cod_amount": 0,
+        "customs_shipment_type": null,
+        "customs_invoice_number": null,
+        "label_pdf_url": "https:\/\/api.pakketdienstqls.nl\/v2\/companies\/9e606e6b-44a4-4a4e-a309-cc70ddd3a103\/shipments\/ff5717e4-585e-4c93-86eb-7e52e0e18c1f\/labels\/pdf",
+        "label_zpl_url": "https:\/\/api.pakketdienstqls.nl\/v2\/companies\/9e606e6b-44a4-4a4e-a309-cc70ddd3a103\/shipments\/ff5717e4-585e-4c93-86eb-7e52e0e18c1f\/labels\/zpl",
+        "return_contact": {
+            "name": "",
+            "companyname": "Mooiekleding.nl",
+            "street": "Hoogendijk",
+            "housenumber": "2c",
+            "address2": null,
+            "postalcode": "2952AE",
+            "locality": "Alblasserdam",
+            "country": "NL",
+            "phone": "",
+            "email": "",
+            "vat": "",
+            "eori": "",
+            "oss": null,
+            "type": "brand"
+        },
+        "sender_contact": {
+            "name": "",
+            "companyname": "Mooiekleding.nl",
+            "street": "Kerkeplaat",
+            "housenumber": "11",
+            "address2": null,
+            "postalcode": "3313LC",
+            "locality": "Dordrecht",
+            "country": "NL",
+            "phone": "",
+            "email": "",
+            "vat": "",
+            "eori": "",
+            "oss": null,
+            "type": "brand"
+        },
+        "receiver_contact": {
+            "name": "Sda",
+            "companyname": "Sad",
+            "street": "Stationsweg",
+            "housenumber": "14",
+            "address2": "adads",
+            "postalcode": "2991RN",
+            "locality": "Barendrecht",
+            "country": "NL",
+            "phone": "0624812321",
+            "email": "gwjvanhattem@gmail.com",
+            "vat": null,
+            "eori": null,
+            "oss": null,
+            "type": "shipment"
+        },
+        "delivery_contact": {
+            "name": "Sda",
+            "companyname": "Sad",
+            "street": "Stationsweg",
+            "housenumber": "14",
+            "address2": "adads",
+            "postalcode": "2991RN",
+            "locality": "Barendrecht",
+            "country": "NL",
+            "phone": "0624812321",
+            "email": "gwjvanhattem@gmail.com",
+            "vat": null,
+            "eori": null,
+            "oss": null,
+            "type": "shipment"
+        },
+        "shipment_products": {
+            "data": [
+                {
+                    "id": "ca0db4be-701c-4419-b0ac-12e32adcf5e7",
+                    "amount": 6,
+                    "name": "Ena Erdman",
+                    "country_code_of_origin": null,
+                    "hs_code": null,
+                    "ean": null,
+                    "sku": null,
+                    "price_per_unit": 418.32,
+                    "weight_per_unit": null,
+                    "currency": "EUR"
+                },
+                {
+                    "id": "007bc29d-5707-4bb0-af21-4e723af7c795",
+                    "amount": 3,
+                    "name": "Ewald Mertz",
+                    "country_code_of_origin": null,
+                    "hs_code": null,
+                    "ean": null,
+                    "sku": null,
+                    "price_per_unit": 917.74,
+                    "weight_per_unit": null,
+                    "currency": "EUR"
+                },
+                {
+                    "id": "ac234dc3-a13c-4b1b-992f-6d7428bd1f49",
+                    "amount": 8,
+                    "name": "Flavie Bechtelar",
+                    "country_code_of_origin": null,
+                    "hs_code": null,
+                    "ean": null,
+                    "sku": null,
+                    "price_per_unit": 528.65,
+                    "weight_per_unit": null,
+                    "currency": "EUR"
+                },
+                {
+                    "id": "32d76349-a7da-472d-a1e7-20fd34b38c34",
+                    "amount": 4,
+                    "name": "Johann Jaskolski",
+                    "country_code_of_origin": null,
+                    "hs_code": null,
+                    "ean": null,
+                    "sku": null,
+                    "price_per_unit": 130.41,
+                    "weight_per_unit": null,
+                    "currency": "EUR"
+                },
+                {
+                    "id": "7e22d60d-5161-43ac-bb14-ce77e476bb3c",
+                    "amount": 8,
+                    "name": "Ms. Aliyah Collier Sr.",
+                    "country_code_of_origin": null,
+                    "hs_code": null,
+                    "ean": null,
+                    "sku": null,
+                    "price_per_unit": 644.05,
+                    "weight_per_unit": null,
+                    "currency": "EUR"
+                },
+                {
+                    "id": "8778824f-0339-488c-868c-0ee5ea7eceee",
+                    "amount": 4,
+                    "name": "Rory Thompson",
+                    "country_code_of_origin": null,
+                    "hs_code": null,
+                    "ean": null,
+                    "sku": null,
+                    "price_per_unit": 500.6,
+                    "weight_per_unit": null,
+                    "currency": "EUR"
+                },
+                {
+                    "id": "d9b69d94-2201-4887-95b3-403d7a2278c0",
+                    "amount": 5,
+                    "name": "Shannon Armstrong PhD",
+                    "country_code_of_origin": null,
+                    "hs_code": null,
+                    "ean": null,
+                    "sku": null,
+                    "price_per_unit": 42.56,
+                    "weight_per_unit": null,
+                    "currency": "EUR"
+                },
+                {
+                    "id": "09bf8f91-e5f5-4a05-849b-84588c087db4",
+                    "amount": 8,
+                    "name": "true",
+                    "country_code_of_origin": null,
+                    "hs_code": null,
+                    "ean": null,
+                    "sku": null,
+                    "price_per_unit": 541.54,
+                    "weight_per_unit": null,
+                    "currency": "EUR"
+                }
+            ]
+        },
+        "custom_values": {
+            "data": []
+        },
+        "product": {
+            "id": 2,
+            "short": "dhl-parcel-deprecated",
+            "name": "DHL Pakje",
+            "type": "delivery",
+            "product_family": {
+                "id": "1a6ae81e-ce57-4daf-8709-8e5f3ca42715",
+                "name": "DHL eCommerce",
+                "target_group_tag": "family_dhlparcel_ecommerce"
+            }
+        },
+        "tracking_id": "3SQLW0026289485"
+    },
+    "meta": {
+        "code": 201
+    },
+    "errors": [],
+    "pagination": null
+}

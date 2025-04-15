@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace BeezMaster\QLSClient\Responses\ValueObjects;
 
-use BeezMaster\QLSClient\Responses\Collection\ProductCombinationsCollection;
-use BeezMaster\QLSClient\Responses\Collection\ProductOptionsCollection;
-use BeezMaster\QLSClient\Responses\Collection\ProductPricingsCollection;
+use BeezMaster\QLSClient\Responses\Collections\ProductCombinationsCollection;
+use BeezMaster\QLSClient\Responses\Collections\ProductOptionsCollection;
+use BeezMaster\QLSClient\Responses\Collections\ProductPricingsCollection;
 
 final readonly class ProductValueObject extends AbstractValueObject
 {
@@ -50,7 +50,6 @@ final readonly class ProductValueObject extends AbstractValueObject
 
     private static function parseAsPricingCollection(array $data, string $key): ProductPricingsCollection
     {
-        // dd($data);
         $collection = new ProductPricingsCollection();
         if (!array_key_exists($key, $data)) {
             return $collection;

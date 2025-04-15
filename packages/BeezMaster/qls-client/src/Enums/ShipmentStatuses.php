@@ -1,6 +1,8 @@
 <?php
 
-namespace BeezMaster\QLSClient;
+declare(strict_types=1);
+
+namespace BeezMaster\QLSClient\Enums;
 
  Enum ShipmentStatuses: string
 {

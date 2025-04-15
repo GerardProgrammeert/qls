@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace BeezMaster\QLSClient\Repositories;
 
 use BeezMaster\QLSClient\QLSService;
-use BeezMaster\QLSClient\Responses\Collection\ProductsCollection;
+use BeezMaster\QLSClient\Responses\Collections\ProductsCollection;
 use BeezMaster\QLSClient\Responses\GetProductsResponse;
+use BeezMaster\QLSClient\Responses\ValueObjects\ProductValueObject;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
 
-class ProductsRepository
+class ProductRepository implements ProductRepositoryInterface
 {
     private ?ProductsCollection $products = null;
 
@@ -42,6 +44,24 @@ class ProductsRepository
 
             return $response?->getCollection();
         });
+    }
+
+    public function getCombinationsByProduct(int $productId):?array
+    {
+        /** @var ?ProductValueObject $product */
+        $product = $this->getByProductId($productId)?->first();
+
+        return data_get($product?->toArray(), 'combinations');
+    }
+    public function allProductCombinations(): Collection
+    {
+        $products = $this->all();
+        $combinations = [];
+        foreach ($products as $product) {
+            $combinations = array_merge($combinations, $product->toArray()['combinations'] ?? []);
+        }
+
+        return collect($combinations);
     }
 
     public function getByProductId(int $id): ?ProductsCollection
