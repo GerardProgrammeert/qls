@@ -29,7 +29,7 @@ QLS_API_BRAND_ID=
 ```
 It’s possible the permissions are not set correctly. If that’s not the case, run this outside the container:
 ```
- chmod developer:developer .env
+chown developer:developer .env
 ```
 
 ## Usage
