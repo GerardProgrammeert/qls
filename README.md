@@ -39,4 +39,5 @@ chown developer:developer .env
 - Navigate to `localhost:8080/orders/{order}/edit` to edit a specific order and register the QLS shipment.
 - On the *Edit Order* page, click the **"Submit QLS Shipment"** button to register the shipment.
 - This action triggers an API call to QLS to register the shipment.
-- If the API call is successful, background jobs will be triggered to generate a PDF file containing package and shipment details.
+- If the API call is successful, background jobs will be triggered to create a PDF file containing package and shipment details.
+- The pdf file are located in `storage/app/private/orders`
