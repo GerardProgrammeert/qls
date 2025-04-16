@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Jobs;
 
 use App\Services\PdfService;
-use Illuminate\Support\Facades\Log;
 
 class GeneratePackagePDFJob extends AbstractOrderJob
 {
@@ -21,11 +20,11 @@ class GeneratePackagePDFJob extends AbstractOrderJob
 
         $service->generatePackage($order);
 
-        MergePDFsJob::dispatch($this->orderId);
-
         $this->finished([
             'order' => $order->id,
             'shipment_id ' => $order->shipment_id,
         ]);
+
+        MergePDFsJob::dispatch($this->orderId);
     }
 }

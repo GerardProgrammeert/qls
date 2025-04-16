@@ -25,7 +25,7 @@ class ProductRepository implements ProductRepositoryInterface
         if ($this->products !== null) {
             return $this->products;
         }
-        
+
         return $this->products =  Cache::remember($this->cacheKey, $this->ttl, function () {
             $service = app()->make(QLSService::class);
             try {
