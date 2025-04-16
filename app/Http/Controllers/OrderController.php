@@ -40,7 +40,6 @@ class OrderController extends Controller
 
     public function store(OrderRequest $request): View|RedirectResponse
     {
-        dd($this->typeCastValidated($request->validated()));
         $shipment = ShipmentValueObject::hydrate($this->typeCastValidated($request->validated()));
         $order = (new StoreOrderAction())->execute($shipment);
         try {
