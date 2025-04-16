@@ -53,6 +53,7 @@ class ProductRepository implements ProductRepositoryInterface
 
         return data_get($product?->toArray(), 'combinations');
     }
+
     public function allProductCombinations(): Collection
     {
         $products = $this->all();

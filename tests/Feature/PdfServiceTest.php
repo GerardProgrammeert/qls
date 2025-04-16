@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Feature;
 
+use App\Models\Order;
 use App\Services\PdfService;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Storage;
@@ -13,12 +14,9 @@ use Tests\TestCase;
 class PdfServiceTest extends TestCase
 {
     private PDFService $pdfService;
-    const ORDERS =  'orders';
     const ORDERS_LABELS = 'orders/labels';
     const ORDERS_PACKAGES = 'orders/packages';
     const ORDERS_LABELS_PACKAGES = 'orders/labels_packages';
-    const SHIPMENT_ID = '8d4cb828-ea1e-4d90-bfee-80adccd169ac';
-    const ORDER_ID =  '123456789';
 
     protected function setUp(): void
     {
@@ -27,38 +25,31 @@ class PdfServiceTest extends TestCase
     }
 
     #[test]
-    public function it_can_generate_pdf(): void
+    public function it_can_generate_package_pdf(): void
     {
         Storage::fake();
 
-        $data = [
-           'column1' => 50,
-           'column2' => null,
-           'column3' => 'string',
-        ];
-        $path = $this->pdfService->generatePackage($data, self::ORDER_ID);
+        $order = Order::factory()->create();
+
+        $path = $this->pdfService->generatePackage($order);
 
         Storage::assertExists($path);
     }
     #[test]
     public function it_can_merge_package_and_label_pdfs(): void
     {
-        //Storage::fake();
-        $this->getPPDFs();
-        $this->pdfService->mergePDFS(self::ORDER_ID, self::SHIPMENT_ID);
+        $order = Order::factory()->create();
+        $this->getPPDFs($order);
+        $path = $this->pdfService->mergePDFS($order);
+
+        Storage::assertExists($path);
     }
 
-    private function getPPDFs(): void
+    private function getPPDFs(Order $order): void
     {
-       // Storage::fake();
-        $pathLabel = self::ORDERS_LABELS . '/' . self::SHIPMENT_ID . '.pdf';
-        dump(Storage::path($pathLabel));
+        $pathLabel = self::ORDERS_LABELS . '/' . $order->shipment_id . '.pdf';
         $label = Pdf::loadHTML('<h1>Shipment label</h1>');
         Storage::put($pathLabel, $label->output());
-
-        $pathPackage = Storage::path(self::ORDERS_PACKAGES . '/' . self::ORDER_ID . '.pdf');
-        $package = Pdf::loadHTML('<h1>Package</h1>');
-        Storage::put($pathPackage, $package->output());
-        sleep(2);
+        $this->pdfService->generatePackage($order);
     }
 }

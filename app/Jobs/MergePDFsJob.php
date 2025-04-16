@@ -15,7 +15,7 @@ class MergePDFsJob extends AbstractOrderJob
 
         $this->started(['order' => $order->id, 'shipment_id ' => $order->shipment_id,]);
 
-        $service->mergePDFs($order->id, $order->shipment_id);
+        $service->mergePDFs($order);
 
         $this->finished(['order' => $order->id, 'shipment_id ' => $order->shipment_id,]);
     }

@@ -33,15 +33,15 @@ class PdfService
         }
     }
 
-    public function mergePDFS(int $orderId, string $shipmentId): ?string
+    public function mergePDFS(Order $order): ?string
     {
         $fpdi = new Fpdi();
 
-        $fpdi->setSourceFile($this->getPath(self::ORDERS_LABELS . '/' . $shipmentId . '.pdf'));
+        $fpdi->setSourceFile($this->getPath(self::ORDERS_LABELS . '/' . $order->shipment_id . '.pdf'));
         $templateIdLabel = $fpdi->importPage(1);
         $sizeLabel = $fpdi->getTemplateSize($templateIdLabel);
 
-        $fpdi->setSourceFile($this->getPath(self::ORDERS_PACKAGES . '/' . $orderId . '.pdf'));
+        $fpdi->setSourceFile($this->getPath(self::ORDERS_PACKAGES . '/' . $order->id . '.pdf'));
         $templateIdPackage = $fpdi->importPage(1);
         $sizePackage = $fpdi->getTemplateSize($templateIdPackage);
 
@@ -55,9 +55,9 @@ class PdfService
 
         $fpdi->useTemplate($templateIdLabel, $labelX, $labelY);
 
-
-        $targetPath = Storage::path(self::ORDERS_LABELS_PACKAGES . '/' . $orderId . '_' . $shipmentId . '.pdf');
-        $fpdi->Output('F', $targetPath);
+        $targetPath = self::ORDERS_LABELS_PACKAGES . '/' .  $order->id . '_' . $order->shipment_id . '.pdf';
+        $fullTargetPath = Storage::path($targetPath);
+        $fpdi->Output('F', $fullTargetPath);
 
         return $targetPath;
     }
@@ -67,9 +67,6 @@ class PdfService
         return Storage::path($path);
     }
 
-    /**
-     *@param array<string, int|null|string> $data
-     */
     public function generatePackage(Order $order): ?string
     {
         $data = $order->orderLines?->map(function (OrderLine $orderLine) {
