@@ -8,9 +8,8 @@ use App\Services\PdfService;
 
 class GeneratePackagePDFJob extends AbstractOrderJob
 {
-    public function handle(): void
+    public function handle(PdfService $service): void
     {
-        $service = app()->make(PdfService::class);
         $order = $this->getOrder($this->orderId);
 
         $this->started([

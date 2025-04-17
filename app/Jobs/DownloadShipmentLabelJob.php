@@ -10,9 +10,8 @@ use Illuminate\Support\Facades\Log;
 
 class DownloadShipmentLabelJob extends AbstractOrderJob
 {
-    public function handle(): void
+    public function handle(QLSService $service): void
     {
-        $service = app()->make(QLSService::class);
         $order = $this->getOrder($this->orderId);
 
         $this->started(['order' => $order->id,]);
