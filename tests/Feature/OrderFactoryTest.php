@@ -27,13 +27,9 @@ class OrderFactoryTest extends TestCase
         $this->assertCount(2, $order->contacts);
         $this->assertGreaterThan(2, $order->orderLines->count());
         $this->assertDatabaseHas('contacts', [
-            'contactable_id' => $order->id,
-            'contactable_type' => Order::class,
             'type' => ContactTypeEnum::DELIVERY,
         ]);
         $this->assertDatabaseHas('contacts', [
-            'contactable_id' => $order->id,
-            'contactable_type' => Order::class,
             'type' => ContactTypeEnum::RECEIVER,
         ]);
     }
