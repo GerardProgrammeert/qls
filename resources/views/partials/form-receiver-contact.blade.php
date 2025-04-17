@@ -7,7 +7,7 @@
     <div>
         <label for="receiver_contact_companyname" class="block text-sm font-medium text-gray-700">Company Name</label>
         <input type="text" id="receiver_contact_companyname" name="receiver_contact[companyname]"
-               value="{{ old('receiver_contact.companyname') ?? ($receiver_contact['companyname'] ?? '') }}}"
+               value="{{ old('receiver_contact.companyname') ?? ($receiver_contact['companyname'] ?? '') }}"
                class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
         @error('receiver_contact.companyname')
         <span class="text-red-500 text-sm">{{ $message }}</span>
