@@ -9,6 +9,7 @@ use App\Models\OrderLine;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Storage;
 use setasign\Fpdi\Fpdi;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class PdfService
 {
@@ -35,34 +36,75 @@ class PdfService
 
     public function mergePDFS(Order $order): ?string
     {
+        if (!$order->shipment_id) {
+            return null;
+        }
+
         $fpdi = new Fpdi();
 
-        $fpdi->setSourceFile($this->getPath(self::ORDERS_LABELS . '/' . $order->shipment_id . '.pdf'));
+        $fpdi->setSourceFile($this->getAbsolutePath($this->getPathLabels($order)));
         $templateIdLabel = $fpdi->importPage(1);
         $sizeLabel = $fpdi->getTemplateSize($templateIdLabel);
 
-        $fpdi->setSourceFile($this->getPath(self::ORDERS_PACKAGES . '/' . $order->id . '.pdf'));
+        $fpdi->setSourceFile($this->getAbsolutePath($this->getPathPackages($order)));
         $templateIdPackage = $fpdi->importPage(1);
         $sizePackage = $fpdi->getTemplateSize($templateIdPackage);
 
         $totalHeight = $sizeLabel['height'] + $sizePackage['height'];
         $pageWidth = max($sizeLabel['width'], $sizePackage['width']);
         $fpdi->AddPage('P', [$pageWidth, $totalHeight]);
-        $fpdi->useTemplate($templateIdPackage, 0, 0);
+        $fpdi->useTemplate($templateIdPackage);
 
         $labelX = ($pageWidth - $sizeLabel['width']) / 2;
         $labelY = $sizePackage['height'];
 
         $fpdi->useTemplate($templateIdLabel, $labelX, $labelY);
 
-        $targetPath = self::ORDERS_LABELS_PACKAGES . '/' .  $order->id . '_' . $order->shipment_id . '.pdf';
-        $fullTargetPath = Storage::path($targetPath);
+        $targetPath = $this->getPathLabelsPackages($order);
+        $fullTargetPath = $this->getAbsolutePath($targetPath);
         $fpdi->Output('F', $fullTargetPath);
-
+        logger('hello');
         return $targetPath;
     }
 
-    private function getPath(string $path): ?string
+    private function getPathLabels(Order $order): ?string
+    {
+        if (!$order->shipment_id) {
+            return null;
+        }
+
+        return self::ORDERS_LABELS . '/'. $order->shipment_id . '.pdf';
+    }
+
+    private function getPathPackages(Order $order): ?string
+    {
+        if (!$order->shipment_id) {
+            return null;
+        }
+
+        return self::ORDERS_PACKAGES . '/' . $order->id . '.pdf';
+    }
+
+
+    private function getPathLabelsPackages(Order $order): ?string
+    {
+        if (!$order->shipment_id) {
+            return null;
+        }
+
+        return self::ORDERS_LABELS_PACKAGES . '/' . $order->id . '_' . $order->shipment_id . '.pdf';
+    }
+
+    public function downloadShipmentPackagePDF(Order $order): StreamedResponse
+    {
+        $path = $this->getPathLabelsPackages($order);
+
+        return Storage::exists($path)
+            ? Storage::download($path)
+            :  abort(404, 'PDF not found.');
+    }
+
+    private function getAbsolutePath(string $path): ?string
     {
         return Storage::path($path);
     }
