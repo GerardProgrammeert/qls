@@ -7,7 +7,6 @@ namespace BeezMaster\QLSClient\Responses\ValueObjects;
 use Illuminate\Contracts\Support\Arrayable;
 use InvalidArgumentException;
 
-/** @todo check validation */
 abstract readonly class AbstractValueObject implements Arrayable
 {
     abstract public static function hydrate(array $data): self;
@@ -17,7 +16,7 @@ abstract readonly class AbstractValueObject implements Arrayable
      */
     protected static function parseAsString(array $data, string $key): string
     {
-        if(!array_key_exists($key, $data) || !is_string($data[$key])){
+        if (!array_key_exists($key, $data) || !is_string($data[$key])) {
             throw new InvalidArgumentException("$key must be a string and cannot be empty");
         }
 

@@ -40,7 +40,7 @@ class OrderController extends Controller
 
     public function store(OrderRequest $request): View|RedirectResponse
     {
-        $shipment = ShipmentValueObject::hydrate($this->typeCastValidated($request->validated()));
+        $shipment = ShipmentValueObject::hydrate($request->validated());
         $order = (new StoreOrderAction())->execute($shipment);
         try {
             $this->sendShipment($shipment, $order);
@@ -72,8 +72,7 @@ class OrderController extends Controller
 
     public function update(OrderRequest $request, Order $order): View|RedirectResponse
     {
-        $shipment = ShipmentValueObject::hydrate($this->typeCastValidated($request->validated()));
-
+        $shipment = ShipmentValueObject::hydrate($request->validated());
         try {
             $this->sendShipment($shipment, $order);
         } catch (Exception $e) {
@@ -86,7 +85,7 @@ class OrderController extends Controller
     }
 
     /**
-     * @param array<int, array<string, mixed>>
+     * @return array<int, array<string, mixed>>
      */
     private function getOrderedProducts(): array
     {
@@ -106,28 +105,6 @@ class OrderController extends Controller
         })->toArray();
     }
 
-    private function typeCastValidated(array $validated): array
-    {
-        $productCombinationId = (int) data_get($validated, 'product_combination_id');
-        $products = collect(data_get($validated, 'shipment_products'))->map(function ($product) {
-            return [
-                'amount' => (int) $product['amount'],
-                'price_per_unit' => (float) $product['price_per_unit'],
-                'name' => $product['name'],
-            ];
-        })->toArray();
-
-        $validated['shipment_products'] = $products;
-        $validated['product_combination_id'] = $productCombinationId;
-        $validated['brand_id'] = config('qls-client.brand_id');
-        $validated['receiver_contact']['country'] = 'NL';
-
-        return $validated;
-    }
-
-    /**
-     *@return array<string, mixed>
-     */
     public function handleValidationErrors(Exception $exception): ?MessageBag
     {
         $validationErrors = null;
