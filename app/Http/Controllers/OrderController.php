@@ -12,6 +12,7 @@ use App\Jobs\DownloadShipmentLabelJob;
 use App\Models\Order;
 use App\Models\OrderLine;
 use App\Models\Product;
+use App\Services\PdfService;
 use BeezMaster\QLSClient\QLSService;
 use BeezMaster\QLSClient\Repositories\ProductRepository;
 use BeezMaster\QLSClient\Requests\ValueObjects\ShipmentValueObject;
@@ -20,6 +21,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Collection;
 use Illuminate\Support\MessageBag;
 use Illuminate\View\View;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class OrderController extends Controller
 {
@@ -82,6 +84,11 @@ class OrderController extends Controller
         }
 
         return redirect()->route('order.index');
+    }
+
+    public function downloadShipment(Order $order, PdfService $service): StreamedResponse
+    {
+        return $service->downloadShipmentPackagePDF($order);
     }
 
     /**

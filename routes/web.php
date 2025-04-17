@@ -15,3 +15,4 @@ Route::get('/orders/create', [OrderController::class, 'create'])->name('order.cr
 Route::get('/orders/{order}/edit', [OrderController::class, 'edit'])->name('order.edit');
 Route::post('/orders/store', [OrderController::class, 'store'])->name('order.store');
 Route::post('/orders/{order}/update', [OrderController::class, 'update'])->name('order.update');
+Route::get('/orders/{order}/download', [OrderController::class, 'downloadShipment'])->name('order.download');
